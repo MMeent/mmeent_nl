@@ -1,10 +1,9 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 
-import blog.urls
 from www.views import IndexView
 
 
 urlpatterns = (
-    url('^/$', IndexView.as_view()),
-    url('^/blog/$', blog.urls)
+    url(r'^/$', IndexView.as_view()),
+    url(r'^/blog/$', include('blog.urls'))
 )
